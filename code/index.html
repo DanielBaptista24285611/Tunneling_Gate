@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Porta Lógica Quântica de Tunelamento pelo Ruído</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</head>
+<body>
+  <!-- Header -->
+  <header id="header">
+    <div class="container">
+      <nav>
+        <a href="#resumo" class="nav-link active" data-section="resumo">Resumo</a>
+        <a href="#introducao" class="nav-link" data-section="introducao">Introdução</a>
+        <a href="#teoria" class="nav-link" data-section="teoria">Teoria</a>
+        <a href="#resultados" class="nav-link" data-section="resultados">Resultados</a>
+        <a href="#discussao" class="nav-link" data-section="discussao">Discussão</a>
+        <a href="#conclusao" class="nav-link" data-section="conclusao">Conclusão</a>
+      </nav>
+      <button id="theme-toggle" aria-label="Toggle theme">
+        <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <circle cx="12" cy="12" r="5"></circle>
+          <line x1="12" y1="1" x2="12" y2="3"></line>
+          <line x1="12" y1="21" x2="12" y2="23"></line>
+          <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+          <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+          <line x1="1" y1="12" x2="3" y2="12"></line>
+          <line x1="21" y1="12" x2="23" y2="12"></line>
+          <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+          <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+        </svg>
+        <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container narrow text-center">
+        <p class="author">Daniel Santos Baptista</p>
+        <h1>Porta Lógica Quântica de Tunelamento pelo Ruído</h1>
+        <p class="subtitle">Uma nova visão para lidar com o ruído: transformando-o de inimigo em aliado</p>
+      </div>
+    </section>
+
+    <!-- Resumo -->
+    <section id="resumo" class="section">
+      <div class="container narrow">
+        <h2>Resumo</h2>
+        <div class="content">
+          <p>
+            O ruído é uma das principais problemáticas presentes no Computador Quântico, pois ele afeta a integridade
+            e fidelidade do Qubit, causando o seu colapso. As técnicas atuais para lidar com o ruído são por meio de
+            algoritmos de redução, mitigando apenas parte dele.
+          </p>
+          <p>
+            Este projeto tem como objetivo apresentar uma nova visão para lidar com o ruído: ao invés de tratá-lo como
+            um inimigo (com técnicas para mitigação), o modelamos de tal forma que ele se torna parte do hamiltoniano.
+          </p>
+          <p>
+            O conceito geral é uma porta lógica quântica que aplica tunelamento pelo ruído, modelando-o como um
+            potencial estocástico — uma variável flutuante de energia que descreve sua aleatoriedade e intensidade de
+            coerência.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Introdução -->
+    <section id="introducao" class="section">
+      <div class="container narrow">
+        <h2>Introdução</h2>
+        <div class="content">
+          <p>
+            A computação quântica promete revolucionar diversos campos, mas enfrenta desafios significativos, sendo o
+            ruído um dos principais obstáculos. O ruído quântico manifesta-se de diversas formas, incluindo
+            decoerência, depolarização e erros de porta, afetando diretamente a fidelidade dos qubits e a precisão das
+            operações quânticas.
+          </p>
+          <p>
+            As abordagens convencionais tratam o ruído como uma perturbação indesejada a ser minimizada através de
+            técnicas de correção de erros e mitigação. No entanto, este trabalho propõe uma mudança paradigmática:
+            utilizar o ruído como um recurso computacional, explorando suas propriedades para realizar operações
+            lógicas.
+          </p>
+          
+          <h3>Motivação</h3>
+          <p>
+            A ideia central é inspirada no fenômeno de tunelamento quântico assistido por ruído, onde flutuações
+            energéticas podem facilitar a transição entre estados quânticos. Ao modelar o ruído como parte integrante
+            do hamiltoniano do sistema, podemos criar portas lógicas que operam através do tunelamento induzido por
+            ruído, transformando um problema em uma oportunidade.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Teoria -->
+    <section id="teoria" class="section">
+      <div class="container narrow">
+        <h2>Fundamentos Teóricos</h2>
+        <div class="content">
+          
+          <h3>Tunelamento Quântico</h3>
+          <p>
+            O tunelamento quântico é um fenômeno onde uma partícula atravessa uma barreira de potencial classicamente
+            intransponível. Em sistemas quânticos de dois níveis (qubits), este efeito pode ser aproveitado para
+            realizar transições entre estados.
+          </p>
+          <p>
+            A probabilidade de tunelamento depende da altura e largura da barreira, bem como da energia da partícula.
+            No contexto de qubits, essas barreiras podem ser manipuladas através de campos externos e, como propomos,
+            através do próprio ruído do sistema.
+          </p>
+
+          <h3>Ruído como Potencial Estocástico</h3>
+          <p>
+            Tradicionalmente, o ruído é modelado como flutuações no ambiente que causam decoerência. Nossa abordagem
+            consiste em incorporar essas flutuações diretamente no hamiltoniano do sistema através de um potencial
+            estocástico $$ V(t) $$, que varia no tempo de acordo com as características do ruído.
+          </p>
+          <p>
+            A equação de Schrödinger com este potencial é dada por:
+          </p>
+          <div class="equation">
+            $$i\hbar\frac{\partial}{\partial t}|\psi(t)\rangle = [H_0 + V(t)]|\psi(t)\rangle$$
+          </div>
+          <p>
+            onde $$ H_0 $$ é o hamiltoniano do sistema livre e $$ V(t) $$ representa as flutuações do ruído.
+          </p>
+
+          <h3>Regimes de Ruído</h3>
+          <p>
+            Dois regimes de ruído foram considerados na implementação:
+          </p>
+          <ul>
+            <li><strong>Ruído Coerente (Quântico):</strong> Flutuações unitárias que preservam a pureza do estado
+            quântico. Este tipo de ruído mantém as correlações quânticas e pode ser explorado construtivamente.</li>
+            <li><strong>Ruído Dissipativo (Clássico):</strong> Flutuações que levam à perda de coerência e informação
+            para o ambiente. Este é o tipo mais comum em sistemas reais e representa o maior desafio.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Resultados -->
+    <section id="resultados" class="section">
+      <div class="container narrow">
+        <h2>Resultados Experimentais</h2>
+        <div class="content">
+          <p>
+            Implementamos a porta de tunelamento pelo ruído em um simulador quântico, comparando sua performance sob
+            diferentes intensidades e tipos de ruído. Os resultados demonstram claramente a eficácia da abordagem em
+            regime coerente.
+          </p>
+
+          <h3>Fidelidade da Porta Lógica</h3>
+          <p>
+            A tabela abaixo apresenta a fidelidade da porta lógica em função da intensidade do ruído (σ), comparando o
+            comportamento nos regimes coerente e dissipativo. Os valores mostram a fidelidade antes e depois da
+            aplicação da porta $$ U_{\text{tunnel}} $$.
+          </p>
+
+          <div class="table-container">
+            <table>
+              <thead>
+                <tr>
+                  <th>σ (intensidade do ruído)</th>
+                  <th class="coherent">Regime Coerente (U<sub>tunnel</sub> preditiva)</th>
+                  <th class="dissipative">Regime Dissipativo (U<sub>tunnel</sub> preditiva)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="mono">0.1</td>
+                  <td class="mono coherent">0.64 → 0.65</td>
+                  <td class="mono dissipative">0.50 → 0.51</td>
+                </tr>
+                <tr>
+                  <td class="mono">0.2</td>
+                  <td class="mono coherent">0.61 → 0.83</td>
+                  <td class="mono dissipative">0.50 → 0.55</td>
+                </tr>
+                <tr>
+                  <td class="mono">0.3</td>
+                  <td class="mono coherent">0.58 → 0.81</td>
+                  <td class="mono dissipative">0.50 → 0.55</td>
+                </tr>
+                <tr>
+                  <td class="mono">0.4</td>
+                  <td class="mono coherent">0.56 → 0.78</td>
+                  <td class="mono dissipative">0.50 → 0.54</td>
+                </tr>
+                <tr>
+                  <td class="mono">0.6</td>
+                  <td class="mono coherent">0.52 → 0.73</td>
+                  <td class="mono dissipative">0.50 → 0.54</td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="results-summary">
+              <p class="coherent"><strong>Ganho médio de fidelidade (coerente): +30%</strong></p>
+              <p class="dissipative"><strong>Ganho médio (dissipativo): ≈ +0%</strong></p>
+            </div>
+          </div>
+
+          <!-- Added graph image showing fidelity vs noise intensity for both regimes -->
+          <div class="graph-container">
+            <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-oRhLvyNP8xJ2kdWMKqmYiCMGDAX2Rs.png" 
+                 alt="Gráficos comparativos mostrando fidelidade vs intensidade do ruído para regimes coerente e dissipativo" 
+                 class="graph-image">
+            <p class="graph-caption">
+              <strong>Figura 1:</strong> Comparação da fidelidade em função da intensidade do ruído σ. 
+              À esquerda, o regime coerente mostra ganho significativo com a porta U<sub>tunnel</sub> preditiva (linha laranja). 
+              À direita, o regime dissipativo não apresenta melhorias significativas.
+            </p>
+          </div>
+
+          <h3>Análise dos Resultados</h3>
+          <p>
+            Os dados revelam um comportamento notavelmente distinto entre os dois regimes. No regime coerente, a porta
+            de tunelamento pelo ruído consegue aumentar significativamente a fidelidade, com ganhos médios de 30%. O
+            melhor desempenho é observado em intensidades moderadas de ruído (σ = 0.2-0.3), onde o tunelamento é
+            favorecido sem degradação excessiva.
+          </p>
+          <p>
+            Em contraste, o regime dissipativo mostra ganhos mínimos, indicando que o ruído clássico não pode ser
+            aproveitado da mesma forma. Isso confirma nossa hipótese de que apenas o ruído com características
+            quânticas (coerente) pode ser utilizado construtivamente para operações lógicas.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Discussão -->
+    <section id="discussao" class="section">
+      <div class="container narrow">
+        <h2>Discussão</h2>
+        <div class="content">
+          
+          <h3>Interpretação Física</h3>
+          <p>
+            Os resultados experimentais confirmam que o ruído coerente pode ser utilizado como recurso computacional,
+            enquanto o ruído dissipativo permanece prejudicial. Esta distinção fundamental tem implicações profundas
+            para o design de algoritmos quânticos e sistemas de computação quântica.
+          </p>
+          <div class="interpretation-box">
+            <p><strong>Insight Chave:</strong> O ruído coerente preserva as correlações quânticas necessárias para o
+            tunelamento, enquanto o ruído dissipativo destrói essas correlações, impedindo a exploração construtiva
+            das flutuações.</p>
+          </div>
+
+          <h3>Implicações Práticas</h3>
+          <p>
+            Para implementações práticas, é crucial caracterizar e controlar o tipo de ruído presente no sistema. Em
+            dispositivos quânticos reais, o ruído é tipicamente uma combinação de componentes coerentes e dissipativos.
+            Nossa abordagem sugere que esforços para preservar a coerência do ruído (não apenas minimizá-lo) podem
+            levar a melhorias de performance.
+          </p>
+          <p>
+            Além disso, a sensibilidade da porta à intensidade do ruído (máximo desempenho em σ ≈ 0.2-0.3) indica que
+            existe um regime ótimo de operação. Isso abre possibilidades para calibração adaptativa, onde o sistema
+            ajusta seus parâmetros em resposta às condições de ruído observadas.
+          </p>
+
+          <h3>Limitações e Trabalhos Futuros</h3>
+          <p>
+            Esta pesquisa representa um passo inicial na exploração do ruído como recurso. Limitações atuais incluem a
+            necessidade de caracterização precisa do ruído e o desenvolvimento de técnicas para separar e controlar
+            suas componentes coerentes e dissipativas.
+          </p>
+          <p>
+            Trabalhos futuros devem investigar a implementação em hardware quântico real, extensão para sistemas de
+            múltiplos qubits, e desenvolvimento de algoritmos que explorem ativamente o ruído coerente como parte de
+            sua lógica operacional.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Conclusão -->
+    <section id="conclusao" class="section">
+      <div class="container narrow">
+        <h2>Conclusão</h2>
+        <div class="content">
+          <p>
+            Este trabalho demonstrou a viabilidade de uma abordagem inovadora para lidar com o ruído em computação
+            quântica: ao invés de tratá-lo exclusivamente como um problema a ser mitigado, podemos incorporá-lo como
+            parte funcional do sistema quântico.
+          </p>
+          <p>
+            A porta lógica de tunelamento pelo ruído apresentada aqui alcança ganhos significativos de fidelidade (até
+            30%) quando operando sob ruído coerente, validando o conceito de ruído como recurso computacional. A
+            distinção clara entre os regimes coerente e dissipativo fornece diretrizes para o design de futuros
+            sistemas quânticos.
+          </p>
+          <p>
+            Nossos resultados sugerem um novo paradigma: em vez de buscar apenas ambientes extremamente silenciosos,
+            devemos focar em criar ambientes com o "tipo certo" de ruído — aquele que preserva correlações quânticas e
+            pode ser explorado construtivamente.
+          </p>
+          <p>
+            Esta pesquisa abre caminho para uma nova classe de algoritmos e portas quânticas que trabalham em harmonia
+            com o ruído, potencialmente tornando a computação quântica mais robusta e prática em cenários do mundo
+            real.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Créditos -->
+    <section class="credits-section">
+      <div class="container narrow text-center">
+        <h3>Créditos e Agradecimentos</h3>
+        <p>Daniel Santos Baptista</p>
+        <p>Projeto desenvolvido como parte da iniciação ciêntifica em Computação Quântica</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container text-center">
+      <p>&copy; 2025 Daniel Santos Baptista. Todos os direitos reservados.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
