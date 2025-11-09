@@ -138,6 +138,54 @@
             onde $$ H_0 $$ é o hamiltoniano do sistema livre e $$ V(t) $$ representa as flutuações do ruído.
           </p>
 
+          <h3>Derivação da Porta Lógica Quântica</h3>
+          <p>
+            Para construir nossa porta lógica de tunelamento pelo ruído, partimos do hamiltoniano físico de dois níveis
+            com ruído estocástico:
+          </p>
+          <div class="equation">
+            $$H(t) = \begin{pmatrix} E_0 & \Delta_0(t) + \xi(t) \\ \Delta_0(t) + \xi(t) & E_1 \end{pmatrix}$$
+          </div>
+          <p>
+            onde $$ E_0 $$ e $$ E_1 $$ são as energias nos estados |0⟩ e |1⟩, $$ \Delta_0 $$ representa o acoplamento
+            base entre os estados, e $$ \xi(t) $$ representa o ruído estocástico.
+          </p>
+          <p>
+            Decompomos este hamiltoniano na base de Pauli. Qualquer matriz 2×2 hermitiana pode ser escrita como
+            combinação da identidade I e das matrizes de Pauli. Definindo:
+          </p>
+          <div class="equation">
+            $$E_m = \frac{E_0 + E_1}{2}, \quad h_x = \Delta, \quad h_z = \frac{E_0 - E_1}{2}$$
+          </div>
+          <p>
+            O hamiltoniano pode ser reescrito como:
+          </p>
+          <div class="equation">
+            $$H = E_m I + \vec{h} \cdot \vec{\sigma}$$
+          </div>
+          <p>
+            onde $$ \vec{h} $$ é o "campo efetivo" que produz rotação no espaço de Bloch. Definindo
+            $$ \Omega = |\vec{h}|/\hbar $$ e o vetor unitário $$ \vec{n} = \vec{h}/|\vec{h}| $$, obtemos:
+          </p>
+          <div class="equation">
+            $$H = E_m I + \hbar\Omega(\vec{n} \cdot \vec{\sigma})$$
+          </div>
+          <p>
+            O operador de evolução temporal é dado por $$ U(t) = e^{-iHt/\hbar} $$. Separando a fase global e usando a
+            propriedade $$ (\vec{n} \cdot \vec{\sigma})^2 = I $$, expandimos em série de Taylor para reconhecer as
+            séries de cosseno e seno, chegando à identidade exponencial:
+          </p>
+          <div class="equation">
+            $$e^{-i\Omega t(\vec{n}\cdot\vec{\sigma})} = \cos(\Omega t)I - i\sin(\Omega t)(\vec{n} \cdot \vec{\sigma})$$
+          </div>
+          <p>
+            Esta é a forma final do operador de evolução (ignorando a fase global), que descreve completamente nossa
+            porta lógica de tunelamento pelo ruído:
+          </p>
+          <div class="equation">
+            $$U(t) = \cos(\Omega t)I - i\sin(\Omega t)(\vec{n} \cdot \vec{\sigma})$$
+          </div>
+
           <h3>Regimes de Ruído</h3>
           <p>
             Dois regimes de ruído foram considerados na implementação:
